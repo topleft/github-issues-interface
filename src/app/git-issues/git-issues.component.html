@@ -1,0 +1,42 @@
+<div>
+
+  <div class="results-info">
+    <div class="results-data">
+      <p
+        class="clickable underline"
+        (click)="refreshIssues()"
+      >
+        Refresh
+      </p>
+    </div>
+    <div class="results-data">
+      <label>Issues: </label>
+      <span>{{issues?.length}}</span>
+    </div>
+    <div class="results-data">
+      <span *ngIf="!currentFilter?.name" class="muted italic">
+        (click any label to filter issues)
+      </span>
+      <span *ngIf="currentFilter?.name">
+        <button class="btn btn-xs" [style.background-color]="formatHexColor(currentFilter.color)" (click)="setFilter()">
+          <span>{{currentFilter.name}}</span>
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+      </span>
+    </div>
+  </div>
+
+  <div class="results-container">
+    <div *ngFor="let issue of issues; let last = last;" class="row">
+      <issue-tile
+      [issue]="issue"
+      [isLast]="last"
+      [isSelected]="isSelected(issue.id)"
+      (click)="toggleSelected(issue.id)"
+      (filter)="setFilter($event)"
+      >
+      </issue-tile>
+    </div>
+  </div>
+
+</div>

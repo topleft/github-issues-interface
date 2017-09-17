@@ -1,0 +1,48 @@
+<div class="col-md-12">
+  <div class="clickable issue-tile" [class.selected]="isSelected" [class.last]="isLast">
+
+    <div class="title">
+      <div class="ellipsis">
+        <a href="{{issue.url}}" target="_blank">{{issue.title}}</a>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="left-body row">
+        <div class="col-sm-4">
+          <label>Created At</label>
+          <p>{{issue.createdAt | date}}</p>
+        </div>
+        <div class="col-sm-4">
+          <label>Updated At</label>
+          <p>{{issue.updatedAt | date}}</p>
+        </div>
+        <div class="col-sm-4">
+          <label>Reporter</label>
+          <p><a href="{{issue.reporterProfile}}"target="_blank">{{issue.reporter}}</a></p>
+        </div>
+      </div>
+
+      <div class="row col-xs-12 footer">
+        <span *ngFor="let label of issue.labels">
+          <button
+          class="btn btn-xs margin-bottom-5"
+          [style.background-color]="formatHexColor(label.color)"
+          (click)="$event?.stopPropagation(); handleFilterClick(label)"
+          >
+          {{label.name}}
+          </button>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="container right-body">
+          <label>Body</label>
+          <p class="line-clamp-4">{{issue.body}}</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

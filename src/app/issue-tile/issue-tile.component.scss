@@ -1,0 +1,59 @@
+a {
+  text-decoration: none;
+}
+
+.selected {
+  background-color: rgba(0, 255, 0, .1);
+}
+
+.issue-tile {
+  height: 190px;
+  width: 100%;
+  border-top: 1px solid #DDD;
+  border-left: 1px solid #DDD;
+  border-right: 1px solid #DDD;
+}
+
+.issue-tile.last {
+  border-bottom: 1px solid #DDD;
+}
+
+.title {
+  padding: 9px;
+  height: 25%;
+  border-bottom: 1px solid #00AA00;
+  font-weight: bold;
+  font-size: 14pt;
+  background-color: #FAFAFA;
+}
+
+.ellipsis {
+  width: 90%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.left-body {
+  padding: 9px;
+}
+
+.right-body {
+  width: 100%;
+  height: 140px;
+  padding: 9px;
+}
+
+.footer {
+  padding: 5px 10px;
+  position: absolute;
+  bottom: -60px;
+}

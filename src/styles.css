@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+.clickable {
+  cursor: pointer;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.margin-bottom-5 {
+  margin-bottom: 5px;
+}
+
+.muted {
+  color: #DDD;
+}
+
+.italic {
+  font-style: italic;
+}
