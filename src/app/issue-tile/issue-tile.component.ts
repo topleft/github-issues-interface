@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Issue } from '../issue';
 import { Label } from '../label';
 import { formatHexColor } from '../ui-helpers';
+const showdown  = require('showdown');
+
 
 @Component({
   selector: 'issue-tile',
@@ -16,6 +18,12 @@ export class IssueTileComponent implements OnInit {
   @Output() filter: EventEmitter<Label> = new EventEmitter<Label>();
 
   constructor() {
+  }
+
+  converMardownToHTML(mardown) {
+    const converter = new showdown.Converter(),
+          html = converter.makeHtml(mardown);
+    return html;
   }
 
   formatHexColor(color) {

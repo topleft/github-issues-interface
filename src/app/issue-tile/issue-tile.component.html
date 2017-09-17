@@ -6,7 +6,7 @@
         <a href="{{issue.url}}" target="_blank">{{issue.title}}</a>
       </div>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-5">
       <div class="left-body row">
         <div class="col-sm-4">
           <label>Created At</label>
@@ -18,7 +18,7 @@
         </div>
         <div class="col-sm-4">
           <label>Reporter</label>
-          <p><a href="{{issue.reporterProfile}}"target="_blank">{{issue.reporter}}</a></p>
+          <p><a class="ellipsis" href="{{issue.reporterProfile}}" target="_blank">{{issue.reporter}}</a></p>
         </div>
       </div>
 
@@ -34,11 +34,11 @@
         </span>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-6">
-        <div class="container right-body">
-          <label>Body</label>
-          <p class="line-clamp-4">{{issue.body}}</p>
+    <div class="col-xs-7 vertical-divider-left">
+      <div class="container right-body">
+        <label>Body</label>
+        <div class="scroll">
+          <p class="" [innerHTML]="converMardownToHTML(issue.body)"></p>
         </div>
       </div>
     </div>
