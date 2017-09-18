@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Issue } from './issue';
+import { formatIssuesData, formatDateToUTC, secretCheck } from './helpers'
 import axios from 'axios';
-let moment = require('moment-timezone');
+
+const secrets = secretCheck();
 
 const GITHUB_API_BASE_URL = 'https://api.github.com/repos'
 
@@ -15,14 +17,11 @@ export class GitIssuesService {
 
     const formattedFromDate = formatDateToUTC(fromDate)
     const url = `${GITHUB_API_BASE_URL}/${repoOwner}/${repoName}/issues?since=${formattedFromDate}&direction=desc`
+    let options = {};
+    if (secrets) options = {auth: secrets};
 
     return new Promise((resolve, reject) => {
-      axios.get(url, {
-        auth: {
-          username: 'topleft',
-          password: '59fbab0bcc0c1f7cbe644150b5ea8752536bfaf9'
-        }
-      })
+      axios.get(url, options)
       .then((results) => {
         const formattedResults = formatIssuesData(results.data);
         this.issues = formattedResults;
@@ -65,16 +64,4 @@ export class GitIssuesService {
 
   }
 
-}
-
-function formatDateToUTC(dateString: string, format: string = 'YYYY-MM-DDTHH:MM:ss'): string {
-  const date = dateString || moment().subtract(7, 'days');
-  const formattedDate = moment.tz(date, 'UTC').format(format)
-  return formattedDate;
-}
-
-
-function formatIssuesData(data: Object[]): Issue[] {
-  const issues = data.map((issue) => new Issue(issue));
-  return issues;
 }

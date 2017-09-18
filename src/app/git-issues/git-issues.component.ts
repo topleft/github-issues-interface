@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { IssueTileComponent } from '../issue-tile/issue-tile.component';
 import { GitIssuesService } from '../git-issues.service';
 import { Issue } from '../issue';
-import { formatHexColor } from '../ui-helpers'
 
 @Component({
   selector: 'app-git-issues',
@@ -11,30 +10,44 @@ import { formatHexColor } from '../ui-helpers'
 })
 export class GitIssuesComponent implements OnInit {
 
-  issues: Issue[];
+  filteredIssues: Issue[];
   currentFilter: any;
+  repoOwner: string;
+  repoName: string;
+  fromDate: string;
+  toDate: string;
+
 
   constructor(private gitIssuesService: GitIssuesService) { }
 
   ngOnInit() {
+    this.repoOwner = 'angular';
+    this.repoName = 'angular';
+    this.repoName = 'angular';
+    this.fromDate = new Date(Date.now() - (1000 * 60 * 60 * 24 * 7)).toISOString();
+    this.toDate = new Date().toISOString();
+
     this.fetchIssues();
   }
 
   fetchIssues() {
-    this.gitIssuesService.fetchIssues('angular', 'angular')
+    this.gitIssuesService.fetchIssues(this.repoOwner, this.repoName, this.fromDate)
     .then((issues) => {
       this.currentFilter = {name: null, color: null};
-      this.issues = issues;
+      this.filteredIssues = issues;
     })
-    .catch(console.error)
+    .catch((err) => {
+      console.error(err)
+      alert('Oops, we encountered an error getting the issues from Github.\n\nPlease refresh the page, thanks.')
+    });
   }
 
   getFilteredIssues(): void {
-    this.issues = this.gitIssuesService.getFilteredIssues();
+    this.filteredIssues = this.gitIssuesService.getFilteredIssues();
   }
 
   refreshIssues() {
-    this.issues = [];
+    this.filteredIssues = [];
     this.fetchIssues();
   }
 
@@ -54,10 +67,6 @@ export class GitIssuesComponent implements OnInit {
   isSelected(issueId: number): boolean {
     const selectedIssueId = this.gitIssuesService.getSelected();
     return selectedIssueId === issueId;
-  }
-
-  formatHexColor(color: string): string {
-    return formatHexColor(color);
   }
 
 }

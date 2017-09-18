@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Issue } from '../issue';
 import { Label } from '../label';
-import { formatHexColor } from '../ui-helpers';
+import { SanitizeHtmlPipe } from '../sanitize-html.pipe';
 const showdown  = require('showdown');
 
 
@@ -24,10 +24,6 @@ export class IssueTileComponent implements OnInit {
     const converter = new showdown.Converter(),
           html = converter.makeHtml(mardown);
     return html;
-  }
-
-  formatHexColor(color) {
-    return formatHexColor(color);
   }
 
   ngOnInit() {

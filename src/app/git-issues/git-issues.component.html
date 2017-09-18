@@ -10,15 +10,31 @@
       </p>
     </div>
     <div class="results-data">
+      <label>Owner: </label>
+      <span>{{repoOwner}}</span>
+    </div>
+    <div class="results-data">
+      <label>Repo: </label>
+      <span>{{repoName}}</span>
+    </div>
+    <div class="results-data">
+      <label>From: </label>
+      <span>{{fromDate | date}}</span>
+    </div>
+    <div class="results-data">
+      <label>To: </label>
+      <span>{{toDate | date}}</span>
+    </div>
+    <div class="results-data">
       <label>Issues: </label>
-      <span>{{issues?.length}}</span>
+      <span>{{filteredIssues?.length}}</span>
     </div>
     <div class="results-data">
       <span *ngIf="!currentFilter?.name" class="muted italic">
         (click any label to filter issues)
       </span>
       <span *ngIf="currentFilter?.name">
-        <button class="btn btn-xs" [style.background-color]="formatHexColor(currentFilter.color)" (click)="setFilter()">
+        <button class="btn btn-xs" [style.background-color]="currentFilter.color" (click)="setFilter()">
           <span>{{currentFilter.name}}</span>
           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
         </button>
@@ -27,7 +43,7 @@
   </div>
 
   <div class="results-container">
-    <div *ngFor="let issue of issues; let last = last;" class="row">
+    <div *ngFor="let issue of filteredIssues; let last = last;" class="row">
       <issue-tile
       [issue]="issue"
       [isLast]="last"

@@ -12,6 +12,7 @@ import { GitIssuesComponent } from './git-issues/git-issues.component';
 import { IssueTileComponent } from './issue-tile/issue-tile.component';
 
 import { GitIssuesService } from './git-issues.service';
+import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { GitIssuesService } from './git-issues.service';
     AboutComponent,
     GitIssuesComponent,
     IssueTileComponent,
+    SanitizeHtmlPipe,
   ],
   imports: [
     BrowserModule,

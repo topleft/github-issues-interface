@@ -8,6 +8,6 @@ export class Label {
     this.id = data.id;
     this.url = data.url;
     this.name = data.name;
-    this.color = data.color;
+    this.color = `#${data.color}`;
   }
 }
