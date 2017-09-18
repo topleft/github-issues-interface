@@ -17,7 +17,6 @@ export class GitIssuesComponent implements OnInit {
   fromDate: string;
   toDate: string;
 
-
   constructor(private gitIssuesService: GitIssuesService) { }
 
   ngOnInit() {
@@ -37,8 +36,8 @@ export class GitIssuesComponent implements OnInit {
       this.filteredIssues = issues;
     })
     .catch((err) => {
-      console.error(err)
-      alert('Oops, we encountered an error getting the issues from Github.\n\nPlease refresh the page, thanks.')
+      console.error(err);
+      alert('Oops, we encountered an error getting the issues from Github.\n\nPlease refresh the page, thanks.');
     });
   }
 
@@ -57,7 +56,7 @@ export class GitIssuesComponent implements OnInit {
     }
     this.currentFilter = filter;
     this.gitIssuesService.setFilter(filter.name);
-    this.getFilteredIssues()
+    this.getFilteredIssues();
   }
 
   toggleSelected(issueId: number): void {

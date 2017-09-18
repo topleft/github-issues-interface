@@ -15,7 +15,7 @@ export class Issue {
   body: string;
 
   constructor(data) {
-    this.id = data.id
+    this.id = data.id;
     this.title = data.title;
     this.createdAt = data.created_at;
     this.updatedAt = data.updated_at;

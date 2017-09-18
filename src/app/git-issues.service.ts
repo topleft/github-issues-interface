@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const secrets = secretCheck();
 
-const GITHUB_API_BASE_URL = 'https://api.github.com/repos'
+const GITHUB_API_BASE_URL = 'https://api.github.com/repos';
 
 @Injectable()
 export class GitIssuesService {
@@ -16,7 +16,7 @@ export class GitIssuesService {
   fetchIssues( repoOwner: string, repoName: string, fromDate?: string ): Promise<any> {
 
     const formattedFromDate = formatDateToUTC(fromDate)
-    const url = `${GITHUB_API_BASE_URL}/${repoOwner}/${repoName}/issues?since=${formattedFromDate}&direction=desc`
+    const url = `${GITHUB_API_BASE_URL}/${repoOwner}/${repoName}/issues?since=${formattedFromDate}&direction=desc`;
     let options = {};
     if (secrets) options = {auth: secrets};
 
@@ -28,14 +28,13 @@ export class GitIssuesService {
         resolve(formattedResults);
       })
       .catch((err) => {
-        reject(err)
+        reject(err);
       });
     });
 
   }
 
   getFilteredIssues(): Issue[] {
-
     if (this.filterText) {
       return this.issues.filter((issue) => {
         return issue.labels.some((l) => l.name === this.filterText);
@@ -43,25 +42,18 @@ export class GitIssuesService {
     } else {
       return this.issues;
     }
-
   }
 
   getSelected(): number {
-
     return this.selectedIssueId;
-
   }
 
   toggleSelected(issueId): void {
-
     this.selectedIssueId = this.selectedIssueId === issueId ? null : issueId;
-
   }
 
   setFilter(filterText): void {
-
     this.filterText = filterText;
-
   }
 
 }

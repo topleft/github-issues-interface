@@ -20,7 +20,7 @@ function secretCheck() {
   try {
     return require('./secrets').secrets;
   } catch(e) {
-    console.warn('You have not configured a github access token.\nAccess to github data will be limited.\nPlease see the readme for more info: https://github.com/topleft/github-issues-interface')
+    console.warn('You have not configured a github access token.\nAccess to github data will be limited.\nPlease see the readme for more info: https://github.com/topleft/github-issues-interface');
     return;
   }
 }
