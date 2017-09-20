@@ -11,7 +11,6 @@ const GITHUB_API_BASE_URL = 'https://api.github.com/repos';
 export class GitIssuesService {
   issues: Issue[] = [];
   selectedIssueId: number;
-  filterText: string;
 
   fetchIssues( repoOwner: string, repoName: string, fromDate?: string ): Promise<any> {
 
@@ -34,10 +33,10 @@ export class GitIssuesService {
 
   }
 
-  getFilteredIssues(): Issue[] {
-    if (this.filterText) {
+  getFilteredIssues(filterText): Issue[] {
+    if (filterText) {
       return this.issues.filter((issue) => {
-        return issue.labels.some((l) => l.name === this.filterText);
+        return issue.labels.some((l) => l.name === filterText);
       })
     } else {
       return this.issues;
@@ -52,8 +51,5 @@ export class GitIssuesService {
     this.selectedIssueId = this.selectedIssueId === issueId ? null : issueId;
   }
 
-  setFilter(filterText): void {
-    this.filterText = filterText;
-  }
 
 }

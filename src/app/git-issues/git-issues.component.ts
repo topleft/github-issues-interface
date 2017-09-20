@@ -42,7 +42,7 @@ export class GitIssuesComponent implements OnInit {
   }
 
   getFilteredIssues(): void {
-    this.filteredIssues = this.gitIssuesService.getFilteredIssues();
+    this.filteredIssues = this.gitIssuesService.getFilteredIssues(this.currentFilter.name);
   }
 
   refreshIssues() {
@@ -55,7 +55,6 @@ export class GitIssuesComponent implements OnInit {
       filter = {name: null, color: null};
     }
     this.currentFilter = filter;
-    this.gitIssuesService.setFilter(filter.name);
     this.getFilteredIssues();
   }
 
