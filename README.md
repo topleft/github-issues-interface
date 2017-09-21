@@ -20,7 +20,6 @@ export const secrets = {
 }
 ```
 > heads up: its Javascript (not env vars), so these variable need to be strings
-> also, don't worry, _src/app/secrets.ts_ is in the _.gitignore_
 
 #### Local Setup
 
@@ -31,3 +30,10 @@ export const secrets = {
 1. navigate to _localhost:4200/issues_
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+
+### Todo:
+
+1. Add pagination
+  - currently only the first 30 issues are coming back from github, allow pagination to see more issues
+1. View issues from other repos
+  - allow the repo owner to be an input and then repo name be a drop down
