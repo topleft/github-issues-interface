@@ -1,28 +1,33 @@
-# TemplateApp
+# Git Issues Interface
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
+### To Run Locally
 
-## Development server
+#### Optional Github Token
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This step is optional, but you may exceed your Github API request limit. To get expanded access, you will need a Github access token. Otherwise, proceed to the _Local Setup_ steps.
 
-## Code scaffolding
+1. log into github
+1. go [https://github.com/settings/tokens](https://github.com/settings/tokens)
+1. click 'Generate new token'
+1. give the token a name, and select repo access
+1. copy and paste this token and keep it somewhere safe
+1. you now have expanded access to the github api (we will use the increased rate limit)
+1. add this code to the new file:
+```
+export const secrets = {
+  username: <your username>,
+  password: <your token>
+}
+```
+> heads up: its Javascript (not env vars), so these variable need to be strings
+> also, don't worry, _src/app/secrets.ts_ is in the _.gitignore_
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### Local Setup
 
-## Build
+1. clone repo locally
+1. `cd` into directory and run `npm install`
+1. `touch ./src/app/secrets.ts`
+1. now run `ng serve`
+1. navigate to _localhost:4200/issues_
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
