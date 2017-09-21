@@ -29,7 +29,7 @@ export const secrets = {
 1. now run `ng serve`
 1. navigate to _localhost:4200/issues_
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.4.
 
 ### Todo:
 
