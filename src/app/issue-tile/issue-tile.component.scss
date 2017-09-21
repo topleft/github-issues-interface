@@ -12,28 +12,32 @@
 }
 
 .title {
-  padding: 9px;
-  height: 45px;
+  padding: 1%;
+  height: 14%;
   border-bottom: 1px solid #00AA00;
   font-weight: bold;
-  font-size: 14pt;
+  font-size: 1.8rem;
   background-color: #FAFAFA;
 }
 
+.issue-body {
+  height: 86%;
+}
+
 .left-body {
-  padding: 9px;
+  padding: 2%;
 }
 
 .right-body {
   width: 100%;
-  height: 264px;
-  padding: 9px;
+  height: 100%;
+  padding: 2%;
 }
 
 .footer {
   padding: 5px 10px;
   position: absolute;
-  bottom: -100%;
+  bottom: 0;
 }
 
 a {

@@ -1,14 +1,14 @@
-import { GitFrontendChallengePage } from './app.po';
+import { AppPage } from './app.po';
 
-describe('git-frontend-challenge App', function() {
-  let page: GitFrontendChallengePage;
+describe('template-app App', () => {
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new GitFrontendChallengePage();
+    page = new AppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });
