@@ -1,4 +1,4 @@
-<div>
+<div class="container">
 
   <div class="results-info">
     <div class="results-data">
@@ -42,16 +42,18 @@
     </div>
   </div>
 
-  <div class="results-container">
-    <div *ngFor="let issue of filteredIssues; let last = last;" class="row">
-      <issue-tile
-      [issue]="issue"
-      [isLast]="last"
-      [isSelected]="isSelected(issue.id)"
-      (click)="toggleSelected(issue.id)"
-      (filter)="setFilter($event)"
-      >
-      </issue-tile>
+  <div class="container">
+    <div class="results-container">
+      <div *ngFor="let issue of filteredIssues; let last = last;" class="row">
+        <issue-tile
+          [issue]="issue"
+          [isLast]="last"
+          [isSelected]="isSelected(issue.id)"
+          (click)="toggleSelected(issue.id)"
+          (filter)="setFilter($event)"
+          >
+        </issue-tile>
+      </div>
     </div>
   </div>
 
