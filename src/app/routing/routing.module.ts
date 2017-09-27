@@ -4,13 +4,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { GitIssuesComponent } from '../git-issues/git-issues.component';
 import { AboutComponent } from '../about/about.component';
+import { LoginComponent } from '../login/login.component';
 
 const routes:Routes = [
   {
     path: '',
     children: [
        { path: 'issues', component: GitIssuesComponent },
-       { path: 'about', component: AboutComponent }
+       { path: 'about', component: AboutComponent },
+       { path: 'login', component: LoginComponent }
     ]
   },
   { path: '**', redirectTo: '' }

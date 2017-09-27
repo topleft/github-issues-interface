@@ -13,6 +13,7 @@ import { IssueTileComponent } from './issue-tile/issue-tile.component';
 
 import { GitIssuesService } from './git-issues.service';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SanitizeHtmlPipe } from './sanitize-html.pipe';
     GitIssuesComponent,
     IssueTileComponent,
     SanitizeHtmlPipe,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
