@@ -1,8 +1,15 @@
 <div>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-      <ul class="nav navbar-nav" *ngFor="let link of links">
-        <li><a [routerLink]="link.path" [routerLinkActive]="['top-nav-active-link']">{{link.text}}</a></li>
+      <ul class="nav navbar-nav">
+        <li class="link" *ngFor="let link of links"><a [routerLink]="link.path" [routerLinkActive]="['top-nav-active-link']">{{link.text}}</a></li>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <li class="link">
+          <a>
+            <login></login>
+          </a>
+        </li>
       </ul>
     </div>
   </nav>

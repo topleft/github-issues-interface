@@ -12,7 +12,6 @@ const routes:Routes = [
     children: [
        { path: 'issues', component: GitIssuesComponent },
        { path: 'about', component: AboutComponent },
-       { path: 'login', component: LoginComponent }
     ]
   },
   { path: '**', redirectTo: '' }

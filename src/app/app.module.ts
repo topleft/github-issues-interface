@@ -12,6 +12,7 @@ import { GitIssuesComponent } from './git-issues/git-issues.component';
 import { IssueTileComponent } from './issue-tile/issue-tile.component';
 
 import { GitIssuesService } from './git-issues.service';
+import { GitAuthService } from './git-auth.service';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 import { LoginComponent } from './login/login.component';
 
@@ -31,7 +32,7 @@ import { LoginComponent } from './login/login.component';
     HttpModule,
     RoutingModule
   ],
-  providers: [GitIssuesService],
+  providers: [GitIssuesService, GitAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
